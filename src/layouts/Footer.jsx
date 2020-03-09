@@ -24,10 +24,7 @@ const Text = styled.div`
 const Footer = () => (
   <Wrapper>
     <Text>
-      <span>
-        Gatsby Tutorial Starter -{' '}
-        <a href="https://justinformentin.com">Justin Formentin</a>
-      </span>
+      <span>Gms - @create-2019</span>
     </Text>
   </Wrapper>
 );

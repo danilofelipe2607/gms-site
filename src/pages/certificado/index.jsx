@@ -3,7 +3,19 @@ import { Layout } from 'layouts';
 import { Header, PostList } from 'components';
 import Helmet from 'react-helmet';
 import { Formik } from 'formik';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {
+  Button,
+  Form,
+  FormGroup,
+  Col,
+  Label,
+  Input,
+  FormText,
+  Row,
+  Card,
+  CardBody,
+  CardHeader,
+} from 'reactstrap';
 
 export default function CertificadoIndex() {
   function handleSubmit(values) {
@@ -15,33 +27,66 @@ export default function CertificadoIndex() {
   };
   return (
     <Layout>
-      <Helmet title={'Home Page'} />
-      <Header title="Home Page">GMS- GOIÁS MERCANTIL SOLUÇÕES</Header>
+      <Helmet title={'Home '} />
+      <Header title="Home ">GMS- GOIÁS MERCANTIL SOLUÇÕES</Header>
       <Helmet />
-      <h3>
-        Faça a validação do seu certificado de informática Básica a baixo:
-      </h3>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        {props => (
-          <form onSubmit={props.handleSubmit}>
-            <FormGroup>
-              <Label for="cpf">CPF:</Label>
-              <Input type="text" name="cpf" placeholder="Digite o cpf" />
-            </FormGroup>
-            <FormGroup>
-              <Label for="token">TOKEN:</Label>
-              <Input
-                type="text"
-                name="token"
-                placeholder="Digite o token"
-                onChange={(values, event) => console.log(values, event, 'dasd')}
-              />
-            </FormGroup>
-
-            <Button>Validar certificado</Button>
-          </form>
-        )}
-      </Formik>
+      <div
+        style={{
+          marginTop: '25px',
+          textAlign: 'center',
+          alignItems: 'center',
+          width: '45px',
+          position: 'relative',
+          display: 'inline',
+        }}
+      >
+        <Card>
+          <CardHeader>
+            Faça a validação do seu certificado de informática Básica a baixo:
+          </CardHeader>
+          <CardBody>
+            <Formik
+              initialValues={initialValues}
+              onSubmit={handleSubmit}
+              enableReinitialize
+            >
+              {({ handleSubmit, handleChange }) => (
+                <Form row onSubmit={handleSubmit}>
+                  <FormGroup>
+                    <Col sm="10">
+                      <Label for="exampleEmail" hidden>
+                        Email
+                      </Label>
+                      <Input
+                        type="text"
+                        name="cpf"
+                        onChange={handleChange('cpf')}
+                        id="cpf"
+                        placeholder="Digite seu Cpf sem pontos"
+                      />
+                    </Col>
+                  </FormGroup>{' '}
+                  <FormGroup>
+                    <Col sm="10">
+                      <Label for="examplePassword" hidden>
+                        Password
+                      </Label>
+                      <Input
+                        onChange={handleChange('token')}
+                        type="text"
+                        name="token"
+                        id="token"
+                        placeholder="Digite o Token do seu certificado"
+                      />
+                    </Col>
+                  </FormGroup>{' '}
+                  <Button type="submit">Validar Certificado</Button>
+                </Form>
+              )}
+            </Formik>
+          </CardBody>
+        </Card>
+      </div>
     </Layout>
   );
 }

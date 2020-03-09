@@ -8,7 +8,10 @@ import { Layout } from 'layouts';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import theme from '../../config/theme';
-import blocks from '../components/blocks.jpg';
+import empresa from '../imgs/empresa.jpg';
+import validacao from '../imgs/validacao.jpg';
+import informatica from '../imgs/informatica.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -125,16 +128,15 @@ const Title = styled.h2`
 `;
 
 const Index = ({ data }) => {
-  const { edges } = data.allMarkdownRemark;
+  // const { edges } = data.allMarkdownRemark;
   return (
     <Layout>
-      <Helmet title={'Home Page'} />
-      <Header title="Home Page">GMS- GOIÁS MERCANTIL SOLUÇÕES</Header>
+      <Helmet title={'Home'} />
+      <Header title="GMS">GOIÁS MERCANTIL SOLUÇÕES</Header>
       <PostWrapper>
         <Wrapper>
           <Image>
-            {' '}
-            <Img fluid={blocks} />
+            <img src={validacao} />
           </Image>
           <StyledLink to={'/certificado'}>
             <Info>
@@ -146,7 +148,7 @@ const Index = ({ data }) => {
         <Wrapper>
           <Image>
             {' '}
-            <img src={blocks} />
+            <img src={empresa} />
           </Image>
           <StyledLink to={'/certificado'}>
             <Info>
@@ -158,11 +160,11 @@ const Index = ({ data }) => {
         <Wrapper>
           <Image>
             {' '}
-            <Img fluid={blocks} />
+            <img src={informatica} />
           </Image>
           <StyledLink to={'/certificado'}>
             <Info>
-              <Title>curso de informática básica</Title>
+              <Title> informática básica</Title>
             </Info>
           </StyledLink>
         </Wrapper>
@@ -190,56 +192,56 @@ const Index = ({ data }) => {
 
 export default Index;
 
-Index.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            excerpt: PropTypes.string,
-            frontmatter: PropTypes.shape({
-              cover: PropTypes.object.isRequired,
-              path: PropTypes.string.isRequired,
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              tags: PropTypes.array,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }),
-};
+// Index.propTypes = {
+//   data: PropTypes.shape({
+//     allMarkdownRemark: PropTypes.shape({
+//       edges: PropTypes.arrayOf(
+//         PropTypes.shape({
+//           node: PropTypes.shape({
+//             excerpt: PropTypes.string,
+//             frontmatter: PropTypes.shape({
+//               cover: PropTypes.object.isRequired,
+//               path: PropTypes.string.isRequired,
+//               title: PropTypes.string.isRequired,
+//               date: PropTypes.string.isRequired,
+//               tags: PropTypes.array,
+//             }),
+//           }),
+//         }).isRequired
+//       ),
+//     }),
+//   }),
+// };
 
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      limit: 6
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 75)
-          frontmatter {
-            title
-            path
-            tags
-            date(formatString: "MM.DD.YYYY")
-            cover {
-              childImageSharp {
-                fluid(
-                  maxWidth: 1000
-                  quality: 90
-                  traceSVG: { color: "#2B2B2F" }
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query {
+//     allMarkdownRemark(
+//       limit: 6
+//       sort: { order: DESC, fields: [frontmatter___date] }
+//     ) {
+//       edges {
+//         node {
+//           id
+//           excerpt(pruneLength: 75)
+//           frontmatter {
+//             title
+//             path
+//             tags
+//             date(formatString: "MM.DD.YYYY")
+//             cover {
+//               childImageSharp {
+//                 fluid(
+//                   maxWidth: 1000
+//                   quality: 90
+//                   traceSVG: { color: "#2B2B2F" }
+//                 ) {
+//                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
