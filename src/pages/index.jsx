@@ -133,7 +133,7 @@ const Index = ({ data }) => {
     <Layout>
       <Helmet title={'Home'} />
       <Header title="GMS">GOIÁS MERCANTIL SOLUÇÕES</Header>
-      {/* <PostWrapper>
+      <PostWrapper>
         <Wrapper>
           <Image>
             <img src={validacao} />
@@ -168,9 +168,9 @@ const Index = ({ data }) => {
             </Info>
           </StyledLink>
         </Wrapper>
-      </PostWrapper> */}
+      </PostWrapper>
 
-      <PostWrapper>
+      {/* <PostWrapper>
         {edges.map(({ node }) => {
           const { id, excerpt, frontmatter } = node;
           const { cover, path, title, date } = frontmatter;
@@ -185,7 +185,7 @@ const Index = ({ data }) => {
             />
           );
         })}
-      </PostWrapper>
+      </PostWrapper> */}
     </Layout>
   );
 };
