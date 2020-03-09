@@ -128,7 +128,7 @@ const Title = styled.h2`
 `;
 
 const Index = ({ data }) => {
-  // const { edges } = data.allMarkdownRemark;
+  // const { edges } = data?.allMarkdownRemark;
   return (
     <Layout>
       <Helmet title={'Home'} />
