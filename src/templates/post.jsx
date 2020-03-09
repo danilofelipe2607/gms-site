@@ -34,7 +34,7 @@ const Post = ({ data, pageContext }) => {
         pathname={path}
         article
       />
-      <Header title={title} date={date} />
+      <Header title={title} date={date} cover={image} />
       <Container>
         <Content input={html} />
         <TagsBlock list={tags || []} />

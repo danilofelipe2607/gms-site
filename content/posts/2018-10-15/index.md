@@ -1,6 +1,6 @@
 ---
 path: "/post-one"
-cover: "./speed.jpg"
+cover: "./blocks.jpg"
 date: "2018-10-15"
 title: "Post Number One"
 published: true
